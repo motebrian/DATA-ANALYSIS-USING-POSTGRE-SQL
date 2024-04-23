@@ -1,7 +1,3 @@
-Here's a GitHub README template for your portfolio project on analyzing supermarket sales data using PostgreSQL, based on the objectives and SQL queries you've provided:
-
----
-
 # Supermarket Sales Data Analysis Using PostgreSQL
 
 This portfolio project demonstrates the use of SQL to analyze supermarket sales data and gain insights into sales performance, profitability, sales trends, customer behavior, and pricing. The analysis covers a range of objectives, and SQL queries are provided to address each objective.
