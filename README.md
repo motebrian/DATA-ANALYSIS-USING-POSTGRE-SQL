@@ -15,6 +15,9 @@ This portfolio project demonstrates the use of SQL to analyze supermarket sales 
    - [Objective 2: Investigate Profitability](#objective-2-investigate-profitability)
    - [Objective 3: Examine Sales Trends and Customer Behavior](#objective-3-examine-sales-trends-and-customer-behavior)
    - [Objective 4: Understand Pricing and Margins](#objective-4-understand-pricing-and-margins)
+4. [Analysis Highlights](#analysis)
+5. [Conclusion](#conclusion)
+6. [Recommendation](#recommendations)
 
 ## Project Description
 
@@ -22,18 +25,30 @@ This project explores a supermarket sales dataset using PostgreSQL to extract in
 
 ## Data Source
 
-The dataset used for this project includes the following columns:
+The database used for this project has the following tables with the following columns:
+### sales
 - **Date:** The date of purchase
-- **Item_Code:** Codes representing items sold
-- **Wholesale_Price:** The wholesale price of items per kilogram
-- **Item_Names:** The names of the items
-- **Category_Codes:** The categories for the items
-- **Quantity:** The quantity sold in kilograms
-- **Selling price:** The item's selling price per kilogram
-- **Sale or Return:** Indicates whether the item was sold or returned
-- **Discount:** Indicates if there was a discount (Yes/No)
-- **Sales:** Calculated as Quantity multiplied by Selling price
-- **Loss_Rate:** The loss rate percent of each item
+- **Item_Code:** Codes representing products sold
+- **quantity_sold_kg:** The quantity sold in kilograms
+- **unit_selling_price_kg:** The product's selling price per kilogram
+- **sale_or_return:** Indicates whether the product was sold or returned
+- **discount:** Indicates if there was a discount (Yes/No)
+- **itemsales:** Calculated as Quantity multiplied by Selling price
+### wholesale_price
+- **Date:** The date of purchase
+- **Item_Code:** Codes representing products sold
+- **wholesale_price_kg:** The wholesale price of products per kilogram
+### items
+- **Item_Code:** Codes representing products sold
+- **Item_Names:** The names of the products
+- **Category_Codes:** The categories for the products
+- **Category_name:** Product categories names
+### loss_rate
+- **Item_Code:** Codes representing products sold
+- **Item_Names:** The names of the products
+- **Loss_Rate:** The loss rate percent of each product
+  
+Download the dataset [here](https://www.kaggle.com/datasets/yapwh1208/supermarket-sales-data)
 
 ## Objectives
 
@@ -202,4 +217,62 @@ GROUP BY
 ORDER BY 
   AVG_Wholesale_Price DESC;
 ```
+## Analysis
+
+The analysis of supermarket sales data reveals the following key insights:
+
+- **Top 3 Best-Selling Product Categories**: The leading product categories by sales volume are:
+  - **Flower/Leaf Vegetables** with a total revenue of $1,079,070.
+  - **Capsicum** with a total revenue of $754,133.
+  - **Edible Mushroom** with a total revenue of $619,598.
+
+- **Best-Selling Products**: The top-selling individual products include:
+  - **Broccoli**, leading the list with $269,881 in sales.
+  - **Net Lotus Root**, achieving sales of $211,652.
+  - **Xixia Mushroom**, with a total revenue of $211,198.
+  - **Wuhu Green Pepper**, generating $205,114 in sales.
+
+- **Impact of Discounts**: Discounts play a significant role in sales. The following products showed notable sales boost due to discount promotions:
+  - **Xixia Mushroom**
+  - **Net Lotus Root**
+  - **Broccoli**
+  - **Yunnan Lettuce (Bag)**
+
+- **Most Profitable Product Categories**: The most profitable product categories based on average profit margins are:
+  - **Edible Mushrooms**
+  - **Capsicum**
+  - **Cabbage**
+
+- **Least Profitable Product Category**: Despite being the best-selling category, **Flower/Leaf Vegetables** has the lowest profitability, likely due to high rates of product returns.
+
+- **Product Returns and Loss**: The category with the highest number of product returns is **Flower/Leaf Vegetables**. This could be contributing to its lower profitability. The products with the highest percentage loss rates are:
+  - **Chinese Cabbage**
+  - **High Melon**
+  - **Chuncai**
+
+- **Seasonal Sales Trends**: The months with the highest sales activity are:
+  - **January**
+  - **February**
+  - **August**
+  - **October**
+
+## Conclusion
+
+The analysis of supermarket sales data using PostgreSQL reveals critical insights into sales performance, profitability, customer behavior, and seasonal trends. The key findings from this analysis indicate that Flower/Leaf Vegetables is the best-selling product category, while Edible Mushrooms and Capsicum are among the most profitable categories. However, high product returns and loss rates in certain categories, such as Flower/Leaf Vegetables, highlight potential issues with inventory management or quality control.
+
+Discounts have proven to be effective in boosting sales for certain products like Xixia Mushroom, Net Lotus Root, and Broccoli. Moreover, the data shows distinct seasonal trends, with the peak sales occurring in January, February, August, and October and lows in April, May, and June. Identifying these trends provides opportunities for supermarkets to tailor their inventory and promotional strategies to maximize sales and profits.
+
+## Recommendations
+
+Based on the analysis results, the following recommendations are made:
+
+1. **Optimize Inventory Management**: Given the high number of product returns in the Flower/Leaf Vegetables category, supermarkets should review their inventory and quality control processes. Implementing stricter quality checks and improving storage conditions could reduce the rate of returns and associated losses.
+
+2. **Leverage Discount Strategies**: The significant impact of discounts on sales suggests that targeted discount promotions can be an effective tool to increase sales. Supermarkets should consider using data-driven insights to determine which products and time periods are best suited for discount campaigns.
+
+3. **Focus on Profitable Categories**: Given the profitability of Edible Mushrooms and Capsicum, supermarkets should allocate resources and marketing efforts towards these categories to enhance overall profitability. This could include promoting these categories in store displays or offering bundled products.
+
+4. **Address High Loss Rates**: The products with the highest loss rates, such as Chinese Cabbage and High Melon, require further investigation. Supermarkets should analyze why these products have high loss rates and take corrective actions, which may include changing suppliers, improving storage, or modifying pricing strategies.
+
+5. **Plan for Seasonal Trends**: Since peak sales occur in specific months, supermarkets should plan inventory and staffing accordingly. Supermarkets can maximize their revenue by aligning marketing campaigns with these peak periods.
 
